@@ -1,0 +1,31 @@
+[package]
+name = "accounts-factory"
+description = "Factory and Keeper of Accounts"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+[dependencies]
+cosmwasm-schema = { workspace = true }
+cosmwasm-std = { workspace = true }
+cw2 = { workspace = true }
+cw-storage-plus = { workspace = true }
+cw-utils = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+schemars = { workspace = true }
+util-types = { workspace = true }
+cw-paginate = { workspace = true }
+
+[dev-dependencies]
+cw-multi-test = "0.15.1"

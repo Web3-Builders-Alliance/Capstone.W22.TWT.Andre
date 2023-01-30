@@ -1,0 +1,332 @@
+{
+  "contract_name": "assembly",
+  "contract_version": "0.0.1",
+  "idl_version": "1.0.0",
+  "instantiate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "InstantiateMsg",
+    "type": "object",
+    "additionalProperties": false
+  },
+  "execute": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExecuteMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "user_account_vote"
+        ],
+        "properties": {
+          "user_account_vote": {
+            "type": "object",
+            "required": [
+              "proposal_id",
+              "vote_option"
+            ],
+            "properties": {
+              "proposal_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "vote_option": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "dear_leader_vote"
+        ],
+        "properties": {
+          "dear_leader_vote": {
+            "type": "object",
+            "required": [
+              "proposal_id",
+              "vote_option"
+            ],
+            "properties": {
+              "proposal_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "vote_option": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "transfer_vote_power"
+        ],
+        "properties": {
+          "transfer_vote_power": {
+            "type": "object",
+            "required": [
+              "dear_leader_addr"
+            ],
+            "properties": {
+              "dear_leader_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "reclaim_vote_power"
+        ],
+        "properties": {
+          "reclaim_vote_power": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "register_dear_leader"
+        ],
+        "properties": {
+          "register_dear_leader": {
+            "type": "object",
+            "required": [
+              "new_dear_leader_addr"
+            ],
+            "properties": {
+              "new_dear_leader_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "register_user_account"
+        ],
+        "properties": {
+          "register_user_account": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "unregister_user_account"
+        ],
+        "properties": {
+          "unregister_user_account": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_account_factory_addr"
+        ],
+        "properties": {
+          "set_account_factory_addr": {
+            "type": "object",
+            "required": [
+              "account_factory_addr"
+            ],
+            "properties": {
+              "account_factory_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "query": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QueryMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "get_dear_leader_delegatores"
+        ],
+        "properties": {
+          "get_dear_leader_delegatores": {
+            "type": "object",
+            "required": [
+              "dear_leader_addr"
+            ],
+            "properties": {
+              "dear_leader_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_user_account_leader"
+        ],
+        "properties": {
+          "get_user_account_leader": {
+            "type": "object",
+            "required": [
+              "user_account_addr"
+            ],
+            "properties": {
+              "user_account_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_vote_proposal_by_user_and_prop"
+        ],
+        "properties": {
+          "get_vote_proposal_by_user_and_prop": {
+            "type": "object",
+            "required": [
+              "proposal_id",
+              "user_account_addr"
+            ],
+            "properties": {
+              "proposal_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "user_account_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_config"
+        ],
+        "properties": {
+          "get_config": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "migrate": null,
+  "sudo": null,
+  "responses": {
+    "get_config": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetConfigResponse",
+      "type": "object",
+      "required": [
+        "accounts_factory_addr",
+        "admin_addr"
+      ],
+      "properties": {
+        "accounts_factory_addr": {
+          "type": "string"
+        },
+        "admin_addr": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_dear_leader_delegatores": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetDearLeaderDelegatoresResponse",
+      "type": "object",
+      "properties": {
+        "delegatores_list": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_user_account_leader": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetUserAccountLeaderResponse",
+      "type": "object",
+      "properties": {
+        "dear_leader_addr": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_vote_proposal_by_user_and_prop": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetVoteProposalByUserAndPropResponse",
+      "type": "object",
+      "required": [
+        "voted"
+      ],
+      "properties": {
+        "voted": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

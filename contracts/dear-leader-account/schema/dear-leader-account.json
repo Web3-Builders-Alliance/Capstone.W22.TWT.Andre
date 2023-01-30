@@ -1,0 +1,91 @@
+{
+  "contract_name": "dear-leader-account",
+  "contract_version": "0.0.1",
+  "idl_version": "1.0.0",
+  "instantiate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "InstantiateMsg",
+    "type": "object",
+    "required": [
+      "assembly_addr"
+    ],
+    "properties": {
+      "assembly_addr": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  },
+  "execute": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExecuteMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "vote"
+        ],
+        "properties": {
+          "vote": {
+            "type": "object",
+            "required": [
+              "proposal_id",
+              "vote_option"
+            ],
+            "properties": {
+              "proposal_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              },
+              "vote_option": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "query": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QueryMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "get_owner_addr"
+        ],
+        "properties": {
+          "get_owner_addr": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "migrate": null,
+  "sudo": null,
+  "responses": {
+    "get_owner_addr": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetOwnerAddrResponse",
+      "type": "object",
+      "required": [
+        "owner_addr"
+      ],
+      "properties": {
+        "owner_addr": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

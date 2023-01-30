@@ -1,0 +1,328 @@
+{
+  "contract_name": "accounts-factory",
+  "contract_version": "0.0.1",
+  "idl_version": "1.0.0",
+  "instantiate": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "InstantiateMsg",
+    "type": "object",
+    "additionalProperties": false
+  },
+  "execute": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExecuteMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "create_user_account"
+        ],
+        "properties": {
+          "create_user_account": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "create_dear_leader_account"
+        ],
+        "properties": {
+          "create_dear_leader_account": {
+            "type": "object",
+            "required": [
+              "dear_leader_addr"
+            ],
+            "properties": {
+              "dear_leader_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_user_accounts_code_id"
+        ],
+        "properties": {
+          "set_user_accounts_code_id": {
+            "type": "object",
+            "required": [
+              "user_accounts_code_id"
+            ],
+            "properties": {
+              "user_accounts_code_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_dear_leader_accounts_code_id"
+        ],
+        "properties": {
+          "set_dear_leader_accounts_code_id": {
+            "type": "object",
+            "required": [
+              "dear_leader_accounts_code_id"
+            ],
+            "properties": {
+              "dear_leader_accounts_code_id": {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "set_assembly_addr"
+        ],
+        "properties": {
+          "set_assembly_addr": {
+            "type": "object",
+            "required": [
+              "assembly_addr"
+            ],
+            "properties": {
+              "assembly_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "query": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QueryMsg",
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "get_user_account_list"
+        ],
+        "properties": {
+          "get_user_account_list": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_owners_list"
+        ],
+        "properties": {
+          "get_owners_list": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_user_account_addr"
+        ],
+        "properties": {
+          "get_user_account_addr": {
+            "type": "object",
+            "required": [
+              "owner_addr"
+            ],
+            "properties": {
+              "owner_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_dear_leader_account_addr"
+        ],
+        "properties": {
+          "get_dear_leader_account_addr": {
+            "type": "object",
+            "required": [
+              "owner_addr"
+            ],
+            "properties": {
+              "owner_addr": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_admin_addr"
+        ],
+        "properties": {
+          "get_admin_addr": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "get_config"
+        ],
+        "properties": {
+          "get_config": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "migrate": null,
+  "sudo": null,
+  "responses": {
+    "get_admin_addr": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetAminAddrResponse",
+      "type": "object",
+      "required": [
+        "admin_addr"
+      ],
+      "properties": {
+        "admin_addr": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_config": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetConfigResponse",
+      "type": "object",
+      "required": [
+        "admin_addr",
+        "assembly_addr",
+        "dear_leader_accounts_code_id",
+        "user_accounts_code_id"
+      ],
+      "properties": {
+        "admin_addr": {
+          "type": "string"
+        },
+        "assembly_addr": {
+          "type": "string"
+        },
+        "dear_leader_accounts_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_accounts_code_id": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_dear_leader_account_addr": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetDearLeaderAccountResponse",
+      "type": "object",
+      "required": [
+        "dear_leader_account_addr"
+      ],
+      "properties": {
+        "dear_leader_account_addr": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_owners_list": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetOwnsersListResponse",
+      "type": "object",
+      "required": [
+        "owners_list"
+      ],
+      "properties": {
+        "owners_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_user_account_addr": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetUserAccountAddrResponse",
+      "type": "object",
+      "required": [
+        "user_account_addr"
+      ],
+      "properties": {
+        "user_account_addr": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "get_user_account_list": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GetUserAccountListResponse",
+      "type": "object",
+      "required": [
+        "user_account_list"
+      ],
+      "properties": {
+        "user_account_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
